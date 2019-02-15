@@ -3,7 +3,7 @@ README.txt for Cloudy MVVM tutorial
 
 Based on: https://cocoacasts.com/welcome-to-mastering-mvvm-with-swift
 
-Working directory: /Users/frankcipolla/Workspace/MVVM/Samsara/Samsara/
+Working directory: /Users/frankcipolla/Workspace/MVVM/Cloudy/
 
 Using git workflow with this
 
