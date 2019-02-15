@@ -87,7 +87,7 @@ class AddLocationViewController: UIViewController {
 
         } else if let matches = placemarks {
             // Update Locations
-            locations = matches.flatMap({ (match) -> Location? in
+            locations = matches.compactMap({ (match) -> Location? in
                 guard let name = match.name else { return nil }
                 guard let location = match.location else { return nil }
                 return Location(name: name, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)

@@ -76,7 +76,7 @@ extension UserDefaults {
             return []
         }
 
-        return dictionaries.flatMap({ (dictionary) -> Location? in
+        return dictionaries.compactMap({ (dictionary) -> Location? in
             return Location(dictionary: dictionary)
         })
     }
