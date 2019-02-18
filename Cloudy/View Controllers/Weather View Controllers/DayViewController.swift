@@ -24,7 +24,7 @@ class DayViewController: WeatherViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!
 
-    // MARK: -
+    // MARK: Delegate
 
     var delegate: DayViewControllerDelegate?
 

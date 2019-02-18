@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3C78684422173FC800F3426F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684222173FC800F3426F /* README.md */; };
 		3C78684522173FC800F3426F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684322173FC800F3426F /* README.txt */; };
+		3C786848221768AA00F3426F /* DayView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786847221768AA00F3426F /* DayView_VM.swift */; };
+		3C78684A221B09EC00F3426F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786849221B09EB00F3426F /* UIImage.swift */; };
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		3C78684222173FC800F3426F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3C78684322173FC800F3426F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
+		3C786847221768AA00F3426F /* DayView_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView_VM.swift; sourceTree = "<group>"; };
+		3C786849221B09EB00F3426F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC08B9E01DA2169400754A85 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C7868462217685300F3426F /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C786847221768AA00F3426F /* DayView_VM.swift */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
 		CC08B9D91DA206C300754A85 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +111,7 @@
 			children = (
 				CC08B9E21DA2208800754A85 /* Conversions.swift */,
 				CC08B9E01DA2169400754A85 /* UserDefaults.swift */,
+				3C786849221B09EB00F3426F /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +261,7 @@
 				CC89B43F1D9FE5BC006BFD6E /* DayViewController.swift */,
 				CC89B4411D9FE5C6006BFD6E /* WeekViewController.swift */,
 				CC7854CC1D9FF99700E7836D /* WeatherViewController.swift */,
+				3C7868462217685300F3426F /* View Models */,
 				CC63745C1DA0F535002E68DC /* Table View Cells */,
 			);
 			path = "Weather View Controllers";
@@ -364,6 +378,7 @@
 			files = (
 				CC08B9E31DA2208800754A85 /* Conversions.swift in Sources */,
 				CC89B4481D9FE8D3006BFD6E /* Configuration.swift in Sources */,
+				3C786848221768AA00F3426F /* DayView_VM.swift in Sources */,
 				CC7854CD1D9FF99700E7836D /* WeatherViewController.swift in Sources */,
 				CC83E0D51F13BF3B00EB0CAC /* LocationsViewController.swift in Sources */,
 				CC89B4391D9FE3D0006BFD6E /* RootViewController.swift in Sources */,
@@ -380,6 +395,7 @@
 				CC83E0DE1F13BFD300EB0CAC /* LocationTableViewCell.swift in Sources */,
 				CC83E0DB1F13BFAB00EB0CAC /* LocationsViewLocationViewModel.swift in Sources */,
 				CC89B4401D9FE5BC006BFD6E /* DayViewController.swift in Sources */,
+				3C78684A221B09EC00F3426F /* UIImage.swift in Sources */,
 				CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */,
 				CC83E0D81F13BF8000EB0CAC /* LocationRepresentable.swift in Sources */,
 				CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */,
