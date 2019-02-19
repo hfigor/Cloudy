@@ -8,25 +8,30 @@
 
 import UIKit
 
-struct DayViewModel { // Remember that the view model should keep a reference to the model
+struct DayViewModel {
     
     // MARK: - Properties
-    
-    let weatherData: WeatherData
+   
+    let weatherData: WeatherData // Remember that the view model should keep a reference to the model
     
     // MARK: Support For Date Label
+    private let dateFormatter = DateFormatter()
     
-    var date: String {
+     var date: String {
+        // Configure Date Formatter
+        dateFormatter.dateFormat = "EEE, MMMM d"
         
-        // Initialize Date Formatter
+        return dateFormatter.string(from: weatherData.time)
+    }
+    
+    // MARK: Support For Time Label
+    private let timeFormatter = DateFormatter()
+    
+    var time: String {
+        // Configure Date Formatter
+        timeFormatter.dateFormat = UserDefaults.timeNotation().timeFormat
         
-        let dateFormatter = DateFormatter()
-        
-        // Configure Data Formatter
-        
-        dateFormatter.dateFormat = UserDefaults.timeNotation().timeFormat
-        
-        return dateFormatter.string(from:weatherData.time)
+        return timeFormatter.string(from: weatherData.time)
     }
     
     // MARK: Support for Description Label
@@ -62,8 +67,11 @@ struct DayViewModel { // Remember that the view model should keep a reference to
             return String(format: "%.f KPH", windspeed.toKPH())
         }
     }
+    // MARK: Support for icon Image
     
-    var image: UIImage? {
-        return UIImage.imageForIcon(withName: weatherData.icon)
+    var iconImageName: String {
+        return weatherData.icon
     }
+       //  return UIImage.imageForIcon(withName:)
+   // }
 }
