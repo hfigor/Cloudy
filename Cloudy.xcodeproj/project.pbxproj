@@ -11,6 +11,8 @@
 		3C78684522173FC800F3426F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684322173FC800F3426F /* README.txt */; };
 		3C786848221768AA00F3426F /* DayView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786847221768AA00F3426F /* DayView_VM.swift */; };
 		3C78684A221B09EC00F3426F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786849221B09EB00F3426F /* UIImage.swift */; };
+		3C78684D221C838400F3426F /* DarkSkyAPI_Http_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684B221C838400F3426F /* DarkSkyAPI_Http_Request.png */; };
+		3C78684E221C838400F3426F /* DarkSkyAPI_Key_Config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684C221C838400F3426F /* DarkSkyAPI_Key_Config.png */; };
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -42,6 +44,8 @@
 		3C78684322173FC800F3426F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
 		3C786847221768AA00F3426F /* DayView_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView_VM.swift; sourceTree = "<group>"; };
 		3C786849221B09EB00F3426F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3C78684B221C838400F3426F /* DarkSkyAPI_Http_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkSkyAPI_Http_Request.png; sourceTree = SOURCE_ROOT; };
+		3C78684C221C838400F3426F /* DarkSkyAPI_Key_Config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkSkyAPI_Key_Config.png; sourceTree = SOURCE_ROOT; };
 		CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC08B9E01DA2169400754A85 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 		CC89B4331D9FE3D0006BFD6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3C78684B221C838400F3426F /* DarkSkyAPI_Http_Request.png */,
+				3C78684C221C838400F3426F /* DarkSkyAPI_Key_Config.png */,
 				CC89B4341D9FE3D0006BFD6E /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -361,10 +367,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C78684E221C838400F3426F /* DarkSkyAPI_Key_Config.png in Resources */,
 				CC89B43C1D9FE3D0006BFD6E /* LaunchScreen.storyboard in Resources */,
 				CC89B43B1D9FE3D0006BFD6E /* Assets.xcassets in Resources */,
 				3C78684422173FC800F3426F /* README.md in Resources */,
 				CC89B43D1D9FE3D0006BFD6E /* Main.storyboard in Resources */,
+				3C78684D221C838400F3426F /* DarkSkyAPI_Http_Request.png in Resources */,
 				3C78684522173FC800F3426F /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
