@@ -13,6 +13,7 @@
 		3C78684A221B09EC00F3426F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786849221B09EB00F3426F /* UIImage.swift */; };
 		3C78684D221C838400F3426F /* DarkSkyAPI_Http_Request.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684B221C838400F3426F /* DarkSkyAPI_Http_Request.png */; };
 		3C78684E221C838400F3426F /* DarkSkyAPI_Key_Config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684C221C838400F3426F /* DarkSkyAPI_Key_Config.png */; };
+		3C786850221C8A7000F3426F /* WeekView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78684F221C8A7000F3426F /* WeekView_VM.swift */; };
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -46,6 +47,7 @@
 		3C786849221B09EB00F3426F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3C78684B221C838400F3426F /* DarkSkyAPI_Http_Request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkSkyAPI_Http_Request.png; sourceTree = SOURCE_ROOT; };
 		3C78684C221C838400F3426F /* DarkSkyAPI_Key_Config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DarkSkyAPI_Key_Config.png; sourceTree = SOURCE_ROOT; };
+		3C78684F221C8A7000F3426F /* WeekView_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView_VM.swift; sourceTree = "<group>"; };
 		CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC08B9E01DA2169400754A85 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				3C786847221768AA00F3426F /* DayView_VM.swift */,
+				3C78684F221C8A7000F3426F /* WeekView_VM.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				CC89B4381D9FE3D0006BFD6E /* AppDelegate.swift in Sources */,
 				CC89B4521D9FECBE006BFD6E /* WeatherDayData.swift in Sources */,
 				CC89B4421D9FE5C6006BFD6E /* WeekViewController.swift in Sources */,
+				3C786850221C8A7000F3426F /* WeekView_VM.swift in Sources */,
 				CC89B4501D9FEC2E006BFD6E /* WeatherData.swift in Sources */,
 				CC83E0E31F13C07800EB0CAC /* Location.swift in Sources */,
 				CC63745E1DA0F557002E68DC /* WeatherDayTableViewCell.swift in Sources */,
@@ -468,6 +472,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -518,6 +523,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

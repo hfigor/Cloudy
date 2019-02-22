@@ -49,9 +49,9 @@ struct DayViewModel {
         
         switch UserDefaults.temperatureNotation() {
         case .fahrenheit:
-            return String(format: "%.1f F", temperature)
+            return String(format: "%.1f ℉", temperature)
         case .celsius:
-            return String(format: "%.1f C", temperature)
+            return String(format: "%.1f ℃", temperature.toCelcius())
         }
     }
     
@@ -62,9 +62,9 @@ struct DayViewModel {
         
         switch UserDefaults.unitsNotation() {
         case .imperial:
-            return String(format: "%.f MPH", windspeed)
+            return String(format: "%.f \u{00B0} MPH", windspeed)
         case .metric:
-            return String(format: "%.f KPH", windspeed.toKPH())
+            return String(format: "%.f  KPH", windspeed.toKPH())
         }
     }
     // MARK: Support for icon Image

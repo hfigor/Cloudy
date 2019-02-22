@@ -24,25 +24,12 @@ class WeekViewController: WeatherViewController {
     
     // MARK: -
 
-    var week: [WeatherDayData]? {
+   // var week: [WeatherDayData]? { when viewController interacted with model directly
+    var viewModel: WeekViewModel? {
         didSet {
             updateView()
         }
     }
-
-    // MARK: -
-
-    private lazy var dayFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        return dateFormatter
-    }()
-
-    private lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d"
-        return dateFormatter
-    }()
 
     // MARK: - View Life Cycle
 
@@ -69,8 +56,8 @@ class WeekViewController: WeatherViewController {
         activityIndicatorView.stopAnimating()
         tableView.refreshControl?.endRefreshing()
 
-        if let week = week {
-            updateWeatherDataContainer(withWeatherData: week)
+        if let _ = viewModel {
+            updateWeatherDataContainer()
 
         } else {
             messageLabel.isHidden = false
@@ -98,7 +85,8 @@ class WeekViewController: WeatherViewController {
 
     // MARK: -
 
-    private func updateWeatherDataContainer(withWeatherData weatherData: [WeatherDayData]) {
+   //  private func updateWeatherDataContainer(withWeatherData weatherData: [WeatherDayData]) {
+    private func updateWeatherDataContainer() {
         weatherDataContainer.isHidden = false
 
         tableView.reloadData()
@@ -115,49 +103,28 @@ class WeekViewController: WeatherViewController {
 extension WeekViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return week == nil ? 0 : 1
+        guard let viewModel = viewModel else { return 0}
+        return viewModel.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let week = week else { return 0 }
-        return week.count
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.numberOfDays
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDayTableViewCell.reuseIdentifier, for: indexPath) as? WeatherDayTableViewCell else { fatalError("Unexpected Table View Cell") }
 
-        if let week = week {
-            // Fetch Weather Data
-            let weatherData = week[indexPath.row]
-
-            var windSpeed = weatherData.windSpeed
-            var temperatureMin = weatherData.temperatureMin
-            var temperatureMax = weatherData.temperatureMax
-
-            if UserDefaults.temperatureNotation() != .fahrenheit {
-                temperatureMin = temperatureMin.toCelcius()
-                temperatureMax = temperatureMax.toCelcius()
-            }
-
+        if let viewModel = viewModel {
+            // Weather Data Fetched in viewModel (WeekViewModel)
+            
             // Configure Cell
-            cell.dayLabel.text = dayFormatter.string(from: weatherData.time)
-            cell.dateLabel.text = dateFormatter.string(from: weatherData.time)
-
-            let min = String(format: "%.0f°", temperatureMin)
-            let max = String(format: "%.0f°", temperatureMax)
-
-            cell.temperatureLabel.text = "\(min) - \(max)"
-
-            if UserDefaults.unitsNotation() != .imperial {
-                windSpeed = windSpeed.toKPH()
-                cell.windSpeedLabel.text = String(format: "%.f KPH", windSpeed)
-            } else {
-                cell.windSpeedLabel.text = String(format: "%.f MPH", windSpeed)
-            }
-
-            cell.iconImageView.image = imageForIcon(withName: weatherData.icon)
+            cell.dayLabel.text =  viewModel.day(for: indexPath.row)
+            cell.dateLabel.text = viewModel.date(for: indexPath.row)
+            cell.temperatureLabel.text = viewModel.temperature(for: indexPath.row)
+            cell.windSpeedLabel.text = viewModel.windSpeed(for: indexPath.row)
+            cell.iconImageView.image = imageForIcon(withName: viewModel.iconImageName(for: indexPath.row))
         }
-
         return cell
     }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Cocoacasts. All rights reserved.
 //
 
+//  timeFormatter.dateFormat = UserDefaults.timeNotation().timeFormat
 import Foundation
 
 enum TimeNotation: Int {

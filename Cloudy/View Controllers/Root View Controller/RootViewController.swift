@@ -156,7 +156,8 @@ class RootViewController: UIViewController {
                 self.dayViewController.viewModel = DayViewModel(weatherData: response)
 
                 // Configure Week View Controller
-                self.weekViewController.week = response.dailyData
+                // self.weekViewController.week = response.dailyData
+                self.weekViewController.viewModel = WeekViewModel(weatherData:response.dailyData)
             }
         }
     }
