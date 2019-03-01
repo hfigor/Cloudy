@@ -84,6 +84,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         guard let section = Section(rawValue: indexPath.section) else { fatalError("Unexpected Section") }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.reuseIdentifier, for: indexPath) as? SettingsTableViewCell else { fatalError("Unexpected Table View Cell") }
 
+        // Helpers
+        var viewModel: SettingsRepresentable?
+        
         switch section {
         case .time:
             // cell.mainLabel.text = (indexPath.row == 0) ? "12 Hour" : "24 Hour"
@@ -91,43 +94,28 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             guard let timeNotation = TimeNotation(rawValue: indexPath.row) else {fatalError("Unexpected Index Path")}
             
             // Initialize ViewModel
-            let viewModel = SettingsViewTimeViewModel(timeNotation: timeNotation)
+            viewModel = SettingsViewTimeViewModel(timeNotation: timeNotation)
             
-            // Configure Cell using viewModel
-            cell.mainLabel.text = viewModel.text
-            cell.accessoryType = viewModel.accessoryType
-            
-//            if indexPath.row == timeNotation.rawValue {
-//                cell.accessoryType = .checkmark
-//            } else {
-//                cell.accessoryType = .none
-//            }
         case .units:
            // cell.mainLabel.text = (indexPath.row == 0) ? "Imperial" : "Metric"
-            guard let unitsNotation = UnitsNotation(rawValue: indexPath.row) else {
-                fatalError("Unexpected Index Path")
-            }
+            guard let unitsNotation = UnitsNotation(rawValue: indexPath.row) else { fatalError("Unexpected Index Path")}
             
             // Initialize viewModel
-            let viewModel = SettingsViewUnitsViewModel(unitsNotation: unitsNotation)
+            viewModel = SettingsViewUnitsViewModel(unitsNotation: unitsNotation)
             
-            cell.mainLabel.text = viewModel.text
-            cell.accessoryType = viewModel.accessoryType
-//            let unitsNotation = UserDefaults.unitsNotation()
-//            if indexPath.row == unitsNotation.rawValue {
-//                cell.accessoryType = .checkmark
-//            } else {
-//                cell.accessoryType = .none
-//            }
         case .temperature:
             guard let temperatureNotation = TemperatureNotation(rawValue: indexPath.row) else { fatalError("Unexpected Index Path")}
             
             // Initialize the ViwModel
-            let viewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
-            
+            viewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
+        }
+        
+        if let viewModel = viewModel {
+            // Configure Cell using viewModel
             cell.mainLabel.text = viewModel.text
             cell.accessoryType = viewModel.accessoryType
         }
+        
         return cell
     }
 

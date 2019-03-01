@@ -30,3 +30,7 @@ struct SettingsViewTimeViewModel {
     }
     
 }
+
+extension  SettingsViewTimeViewModel: SettingsRepresentable {
+
+}
