@@ -110,10 +110,16 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             viewModel = SettingsViewTemperatureViewModel(temperatureNotation: temperatureNotation)
         }
         
-        if let viewModel = viewModel {
-            // Configure Cell using viewModel
-            cell.mainLabel.text = viewModel.text
-            cell.accessoryType = viewModel.accessoryType
+//        if let viewModel = viewModel {
+//            // Configure Cell using viewModel
+//            cell.mainLabel.text = viewModel.text
+//            cell.accessoryType = viewModel.accessoryType
+//        }
+//
+        
+        // In CH 12 we let the cell be responsible for configuring itself.  The ViewController is DUMB about the contents of the cell now.
+          if let viewModel = viewModel {
+            cell.configure(withViewModel: viewModel)
         }
         
         return cell

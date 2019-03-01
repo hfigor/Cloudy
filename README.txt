@@ -28,7 +28,15 @@ We make each ViewModel conform to the SettingsRepresentable protocol and within 
 The Swift magic happens when we set the viewController viewModel var in each section to = the discrete section ViewController.
 We can then extract the text and accessoryType values from the viewModel.
 
+CH 12:
 
+ // In CH 12 we let the cell be responsible for configuring itself.  The ViewController is DUMB about the contents of the cell now.
+
+from: https://cocoacasts.com/making-table-view-cells-autoconfigurable :
+
+Protocol-Oriented Programming
+I want to highlight the role of the SettingsRepresentable protocol in the story. The SettingsRepresentable protocol serves two purposes. The most obvious task of the SettingsRepresentable protocol is defining an interface. Because the view models we defined earlier conform to this protocol, the SettingsTableViewCell class only needs to have the ability to handle an object of type SettingsRepresentable.
+But the SettingsRepresentable protocol performs a more important but less obvious task. It adds a layer of abstraction. The SettingsRepresentable protocol ensures that the SettingsTableViewCell class doesn't need to know about the view models we defined (SettingsViewTimeViewModel, SettingsViewUnitsViewModel, and SettingsViewTemperatureViewModel). That's an important advantage and that's the beauty and elegance of protocol-oriented programming.
 
 
 

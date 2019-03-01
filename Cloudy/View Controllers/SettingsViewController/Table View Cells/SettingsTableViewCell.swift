@@ -26,5 +26,12 @@ class SettingsTableViewCell: UITableViewCell {
         // Configure Cell
         selectionStyle = .none
     }
+    
+    // In CH 12 we utilize the SettingsRepresentable Protocol to access the getters for the text and accessoryType.
+    
+    func configure(withViewModel viewModel: SettingsRepresentable) {
+        mainLabel.text = viewModel.text
+        accessoryType = viewModel.accessoryType
+    }
 
 }
