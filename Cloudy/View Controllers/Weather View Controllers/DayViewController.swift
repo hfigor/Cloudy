@@ -83,7 +83,7 @@ class DayViewController: WeatherViewController {
         
         dateLabel.text = viewModel.date
         timeLabel.text = viewModel.time
-        iconImageView.image = imageForIcon(withName: viewModel.iconImageName)
+        iconImageView.image = viewModel.image
         windSpeedLabel.text = viewModel.windspeed
         descriptionLabel.text = viewModel.summary
         temperatureLabel.text = viewModel.temperature

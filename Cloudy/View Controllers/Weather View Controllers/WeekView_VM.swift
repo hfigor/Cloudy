@@ -8,92 +8,30 @@
 
 import Foundation
 
-struct WeekViewModel {
+struct WeekViewModel {  // CH 13 We are going to use the WeatherDayViewViewModel to populate this view as well
     
-// MARK Properties
+    // MARK Properties
     
-let weatherData: [WeatherDayData]
-
-    private let dayFormatter = DateFormatter()
-    private let dateFormatter = DateFormatter()
+    let weatherData: [WeatherDayData]
     
-    
-var numberOfSections: Int {
-    return 1
-}
-
-var numberOfDays: Int {  // actually the number of rows in the section
-    return weatherData.count
-}
-    
-    // MARK : Support day label of WeatherDataTableViewCell
-    
-    func day(for index: Int) -> String {
-        let weatherDayData = weatherData[index]
-        
-         // Configure Data Formatter
-        dateFormatter.dateFormat = "EEEE"
-        
-        return dateFormatter.string(from: weatherDayData.time)
+    var numberOfSections: Int {
+        return 1
     }
     
-    func date(for index: Int) -> String {
-        // Fetch Weather Data for Day
-        let weatherDayData = weatherData[index]
-        
-        // Configure Date Formatter
-        dateFormatter.dateFormat = "MMM d"
-        
-        return dateFormatter.string(from: weatherDayData.time)
+    var numberOfDays: Int {  // actually the number of rows in the section
+        return weatherData.count
     }
     
-    // MARK: Support for the Temperature label for the WeatherDayTableViewCell
+    // MARK: methods
     
-    func temperature(for index: Int) -> String {
-        // Fetch Weather Data
-        let weatherDayData = weatherData[index]
-        
-        let min = format(temperature: weatherDayData.temperatureMin)
-        let max = format(temperature: weatherDayData.temperatureMax)
-        
-        return "\(min) - \(max)"
+    // from https://cocoacasts.com/supercharging-mvvm-with-protocols :
+    
+    //    Because the week view view model is now responsible for supplying a view model for each table view cell of the week view controller,
+    //    we need to implement a new method, viewModel(for:). This method takes an index as its only argument.
+    //    The index corresponds with a row in the table view of the week view controller. The viewModel(for:) method returns an instance of the WeatherDayViewViewModel struct.
+    
+    //   We will use a protocol to pass this to the table view cell
+    func viewModel(for index: Int) -> WeatherDayViewViewModel {
+        return WeatherDayViewViewModel(weatherDayData: weatherData[index])
     }
-    
-    // MARK: Temperature Helper Methods
-    
-    private func format(temperature: Double) -> String {
-        switch UserDefaults.temperatureNotation() {
-        case .fahrenheit:
-            return String(format: "%.0f F", temperature)
-        case .celsius:
-            return String(format: "%.0f C", temperature.toCelcius())
-        }
-    }
-    
-    // MARK: Support for Windspeed label
-    
-    func windSpeed(for index: Int) -> String {
-        
-        // Fetch Weather Data
-        let weatherDayData = weatherData[index]
-        let windSpeed = weatherDayData.windSpeed
-        
-        switch UserDefaults.unitsNotation() {
-        case .imperial:
-            return String(format:" %.f MPH", windSpeed)
-        case .metric:
-            return String(format:" %.f KPH", windSpeed.toKPH())
-        }
-      }
-        // MARK: Support for icon image
-    
-    func iconImageName(for index: Int) -> String {
-        // Fetch Weather Data
-        let weatherDayData = weatherData[index]
-        return weatherDayData.icon
-    }
-    
-    
-    
-   
 }

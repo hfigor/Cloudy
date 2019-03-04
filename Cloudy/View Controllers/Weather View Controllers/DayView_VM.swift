@@ -69,9 +69,8 @@ struct DayViewModel {
     }
     // MARK: Support for icon Image
     
-    var iconImageName: String {
-        return weatherData.icon
+    var image: UIImage? {
+        return UIImage.imageForIcon(withName: weatherData.icon)
     }
-       //  return UIImage.imageForIcon(withName:)
-   // }
+
 }
