@@ -7,27 +7,77 @@
 //
 
 import XCTest
+@testable import Cloudy
 
-class SettingsViewUnits_VM_Tests: XCTestCase {
+class SettingsViewUnitsViewModelTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+        
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.unitsNotation)
+    }
+    
+    // MARK: Test for Text
+
+    func testText_Imperial(){
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
+        XCTAssertEqual(viewModel.text, "Imperial")
+    }
+    
+    func testText_Metric() {
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
+        XCTAssertEqual(viewModel.text, "Metric")
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // MARK: Test for Accessory Type
+    
+    func testAccessoryType_Imperial_Imperial() {
+        let unitsNotation: UnitsNotation = .imperial
+        UserDefaults.setUnitsNotation(unitsNotation: unitsNotation)
+        
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
+        
+        XCTAssertEqual(viewModel.accessoryType, UITableViewCell.AccessoryType.checkmark)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testAccessoryType_Imperial_Metric() {
+        let unitsNotation: UnitsNotation = .imperial
+        UserDefaults.setUnitsNotation(unitsNotation: unitsNotation)
+        
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
+        
+        XCTAssertEqual(viewModel.accessoryType, UITableViewCell.AccessoryType.none)
     }
+    
+    func testAccessoryType_Metric_Metric() {
+        let unitsNotation: UnitsNotation = .metric
+        UserDefaults.setUnitsNotation(unitsNotation: unitsNotation)
+        
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .metric)
+        
+        XCTAssertEqual(viewModel.accessoryType, UITableViewCell.AccessoryType.checkmark)
+    }
+    
+    func testAccessoryType_Metric_Imperial() {
+        let unitsNotation: UnitsNotation = .metric
+        UserDefaults.setUnitsNotation(unitsNotation: unitsNotation)
+        
+        let viewModel = SettingsViewUnitsViewModel(unitsNotation: .imperial)
+        
+        XCTAssertEqual(viewModel.accessoryType, UITableViewCell.AccessoryType.none)
+    }
+    
+//    func testPerformanceExample() {
+//        
+//       }
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+  
 
 }

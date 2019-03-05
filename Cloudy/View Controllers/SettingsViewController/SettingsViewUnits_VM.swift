@@ -23,7 +23,7 @@ struct SettingsViewUnitsViewModel {
         }
     }
     
-    var accessoryType: UITableViewCellAccessoryType {
+    var accessoryType: UITableViewCell.AccessoryType {
         if UserDefaults.unitsNotation() == unitsNotation {
             return .checkmark
         } else {
