@@ -38,5 +38,16 @@ Protocol-Oriented Programming
 I want to highlight the role of the SettingsRepresentable protocol in the story. The SettingsRepresentable protocol serves two purposes. The most obvious task of the SettingsRepresentable protocol is defining an interface. Because the view models we defined earlier conform to this protocol, the SettingsTableViewCell class only needs to have the ability to handle an object of type SettingsRepresentable.
 But the SettingsRepresentable protocol performs a more important but less obvious task. It adds a layer of abstraction. The SettingsRepresentable protocol ensures that the SettingsTableViewCell class doesn't need to know about the view models we defined (SettingsViewTimeViewModel, SettingsViewUnitsViewModel, and SettingsViewTemperatureViewModel). That's an important advantage and that's the beauty and elegance of protocol-oriented programming.
 
+CH 16:
 
+To guarantee that the unit tests for the DayViewViewModel struct are fast and reliable, we need stubs.
+The idea is simple. We fetch a response from the Dark Sky API, save it in the unit testing bundle, and load the response when we run the unit tests for the view model.
+
+
+class DayView_VM_Tests: XCTestCase {
+
+// MARK: Properties
+
+// from https://cocoacasts.com/using-stubs-for-better-unit-tests :
+// To simplify the unit tests, we won't be instantiating a view model in each of the unit tests. Instead, we create a view model, the view model we use for testing, in the setUp() method. Let me show you how that works and what the benefits are.
 
