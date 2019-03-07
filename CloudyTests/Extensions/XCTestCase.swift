@@ -14,7 +14,7 @@ extension XCTestCase {
 
 func loadStubFromBundle(withName name: String, extension: String) -> Data {
     let bundle = Bundle(for: classForCoder)
-    let url = Bundle.url(forResource: name, withExtension: `extension`)
+    let url = bundle.url(forResource: name, withExtension: `extension`)
  
     return try! Data(contentsOf: url!)
     // from https://cocoacasts.com/using-stubs-for-better-unit-tests :
