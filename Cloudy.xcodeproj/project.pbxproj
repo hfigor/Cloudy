@@ -18,6 +18,8 @@
 		3C2C6C55222F21A800D89AE4 /* darksky.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C2C6C54222F21A000D89AE4 /* darksky.json */; };
 		3C2C6C57222F221B00D89AE4 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C56222F221B00D89AE4 /* XCTestCase.swift */; };
 		3C2C6C59222F260F00D89AE4 /* DayView_VM_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C58222F260F00D89AE4 /* DayView_VM_Tests.swift */; };
+		3C4A1EBD2231A70400E3808B /* WeekView_VM_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A1EBC2231A70400E3808B /* WeekView_VM_Tests.swift */; };
+		3C4A1EBF2231A84400E3808B /* WeatherDayView_VM_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A1EBE2231A84400E3808B /* WeatherDayView_VM_Tests.swift */; };
 		3C78684422173FC800F3426F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684222173FC800F3426F /* README.md */; };
 		3C78684522173FC800F3426F /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3C78684322173FC800F3426F /* README.txt */; };
 		3C786848221768AA00F3426F /* DayView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C786847221768AA00F3426F /* DayView_VM.swift */; };
@@ -76,6 +78,8 @@
 		3C2C6C54222F21A000D89AE4 /* darksky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = darksky.json; path = Stubs/darksky.json; sourceTree = "<group>"; };
 		3C2C6C56222F221B00D89AE4 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XCTestCase.swift; path = Extensions/XCTestCase.swift; sourceTree = "<group>"; };
 		3C2C6C58222F260F00D89AE4 /* DayView_VM_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DayView_VM_Tests.swift; path = TestCases/DayView_VM_Tests.swift; sourceTree = "<group>"; };
+		3C4A1EBC2231A70400E3808B /* WeekView_VM_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekView_VM_Tests.swift; path = TestCases/WeekView_VM_Tests.swift; sourceTree = "<group>"; };
+		3C4A1EBE2231A84400E3808B /* WeatherDayView_VM_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherDayView_VM_Tests.swift; path = TestCases/WeatherDayView_VM_Tests.swift; sourceTree = "<group>"; };
 		3C78684222173FC800F3426F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		3C78684322173FC800F3426F /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = SOURCE_ROOT; };
 		3C786847221768AA00F3426F /* DayView_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView_VM.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				3C2C6C50222DC4DF00D89AE4 /* SettingsViewUnits_VM_Tests.swift */,
 				3C2C6C52222EED8F00D89AE4 /* SettingsViewTemp_VM_Tests.swift */,
 				3C2C6C58222F260F00D89AE4 /* DayView_VM_Tests.swift */,
+				3C4A1EBC2231A70400E3808B /* WeekView_VM_Tests.swift */,
+				3C4A1EBE2231A84400E3808B /* WeatherDayView_VM_Tests.swift */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -546,7 +552,9 @@
 				3C2C6C53222EED8F00D89AE4 /* SettingsViewTemp_VM_Tests.swift in Sources */,
 				3C2C6C51222DC4DF00D89AE4 /* SettingsViewUnits_VM_Tests.swift in Sources */,
 				3C2C6C57222F221B00D89AE4 /* XCTestCase.swift in Sources */,
+				3C4A1EBF2231A84400E3808B /* WeatherDayView_VM_Tests.swift in Sources */,
 				3C2C6C4F222DA80000D89AE4 /* SettingsViewTime_VM_Tests.swift in Sources */,
+				3C4A1EBD2231A70400E3808B /* WeekView_VM_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
