@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct WeatherDayViewViewModel: WeatherDayRepresentable {
+struct WeatherDayViewViewModel{
 
     // Properties
     
@@ -81,6 +81,6 @@ struct WeatherDayViewViewModel: WeatherDayRepresentable {
     }
 }
 
-//extension WeatherDayViewViewModel: WeatherDayRepresentable {
-//
-//}
+extension WeatherDayViewViewModel: WeatherDayRepresentable {
+
+}

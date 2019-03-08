@@ -13,7 +13,7 @@ class WeatherDayView_VM_Tests: XCTestCase {
 
     // MARK: Properies
     
-    var viewModel: WeekViewModel!
+    var viewModel: WeatherDayViewViewModel!
     
     override func setUp() {
         super.setUp()
@@ -23,24 +23,68 @@ class WeatherDayView_VM_Tests: XCTestCase {
         let weatherData: WeatherData = try! JSONDecoder.decode(data:data)
         
         // Initialize View Model
-        viewModel = WeekViewModel(weatherData: weatherData.dailyData)
+        viewModel = WeatherDayViewViewModel(weatherDayData: weatherData.dailyData[5])
     }
 
     override func tearDown() {
        super.tearDown()
+        
+        // Mark: Reset User Defaults
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.unitsNotation)
+        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.temperatureNotation)
     }
 
- 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+   // MARK: Test for Day
+    func testDay() {
+        XCTAssertEqual(viewModel.day, "Saturday")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    // MARK: Test for Date
+    func testDate() {
+        XCTAssertEqual(viewModel.date, "Jul 15")
+    }
+    
+    // MARK: Tests for Temperature
+    func testTemperature_Fahrenheit() {
+        let temperatureNotation: TemperatureNotation = .fahrenheit
+        UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaultsKeys.temperatureNotation)
+
+        XCTAssertEqual(viewModel.temperature, "37 F - 47 F")
+    }
+
+    // MARK: Test for Celsius
+    func testTemperature_Celsius() {
+        let temperatureNotation: TemperatureNotation = .celsius
+        UserDefaults.standard.set(temperatureNotation.rawValue, forKey: UserDefaultsKeys.temperatureNotation)
+
+        XCTAssertEqual(viewModel.temperature, "3 C - 8 C")
+    }
+
+    // MARK: Tests for Wind Speed
+    func testWindSpeed_Imperial() {
+        let unitsNotation: UnitsNotation = .imperial
+        UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+        XCTAssertEqual(viewModel.windspeed, " 1 MPH")
+    }
+
+    func testWindSpeed_Metric() {
+        let unitsNotation: UnitsNotation = .metric
+        UserDefaults.standard.set(unitsNotation.rawValue, forKey: UserDefaultsKeys.unitsNotation)
+        XCTAssertEqual(viewModel.windspeed, " 2 KPH")
+    }
+    
+    // Tests for Image
+    
+    func testImage() {
+        let viewModelImage = viewModel.image
+        let imageDataViewModel = viewModelImage!.pngData()!
+        let imageDataReference = UIImage(named: "cloudy")!.pngData()!
+        
+        XCTAssertNotNil(viewModelImage)
+        XCTAssertEqual(viewModelImage!.size.width, 236.0)
+        XCTAssertEqual(viewModelImage!.size.height, 172.0)
+        XCTAssertEqual(imageDataViewModel, imageDataReference)
+            
         }
-    }
 
 }

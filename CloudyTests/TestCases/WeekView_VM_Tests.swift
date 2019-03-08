@@ -40,6 +40,16 @@ class WeekView_VM_Tests: XCTestCase {
        XCTAssertEqual(viewModel.numberOfDays, 8)
     }
     
+    // MARK: func viewModel(for index: Int)
+    func testViewModelForIndex() {
+        let weatherDayViewModel = viewModel.viewModel(for: 5)
+        
+        XCTAssertEqual(weatherDayViewModel.day, "Saturday")
+        XCTAssertEqual(weatherDayViewModel.date, "Jul 15")
+    }
+    
+   
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
