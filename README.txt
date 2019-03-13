@@ -51,3 +51,10 @@ class DayView_VM_Tests: XCTestCase {
 // from https://cocoacasts.com/using-stubs-for-better-unit-tests :
 // To simplify the unit tests, we won't be instantiating a view model in each of the unit tests. Instead, we create a view model, the view model we use for testing, in the setUp() method. Let me show you how that works and what the benefits are.
 
+CH 19:
+from: https://cocoacasts.com/what-are-the-options
+
+Unfortunately, Swift currently doesn't have bindings. You can roll your own implementation using closures or key-value-observing. I like to refer to such solutions as "DIY bindings", "Do It Yourself bindings". That's the solution we start with. But this solution isn't scalable and it isn't terribly elegant.
+
+Complex applications need a better solution. There are several options available, such as Bond, RxSwift, and ReactiveCocoa. The solution we'll be using in this series is RxSwift. It's the most popular option and the one I have come to appreciate most. It's also easy to pick up.
+
