@@ -12,6 +12,6 @@ protocol SettingsRepresentable {
     
     var text: String {get}
     
-    var accessoryType: UITableViewCellAccessoryType {get}
+    var accessoryType: UITableViewCell.AccessoryType {get}
     
 }
