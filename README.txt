@@ -58,3 +58,30 @@ Unfortunately, Swift currently doesn't have bindings. You can roll your own impl
 
 Complex applications need a better solution. There are several options available, such as Bond, RxSwift, and ReactiveCocoa. The solution we'll be using in this series is RxSwift. It's the most popular option and the one I have come to appreciate most. It's also easy to pick up.
 
+CH 24:
+from: https://cocoacasts.com/refactoring-the-view-model
+
+in the AddLocationView_VM:
+We are implementing RxSwift and RxCocoa to utilize Drivers as a stream or sequence of values.
+We also remove the responsibility of tracking the State (results of the geocode requests) from the ViewModel. We use Drivers for this:
+
+We declare a constant, private property _locations of type BehaviorRelay. The BehaviorRelay is of type [Location].
+You can think of a BehaviorRelay as the pipeline and [Location] as the data that flows through that pipeline.
+We initialize the pipeline with an empty array of locations.
+
+We expose two computed properties and we simply return the private behavior relays as drivers.
+Let's clean up the pieces we no longer need. We can remove a few properties:
+the locations property
+the old query property
+and the old querying property
+And while we're at it, we no longer need:
+the queryingDidChange property
+and the locationsDidChange property
+
+Great. The last thing we need to do is make a few changes to how the view model accesses the array of locations. The changes are minor. A reactive BehaviorRelay exposes its current value through its value property. This means we need to update:
+the numberOfLocations computed property
+the location(at:) method
+and the geocode(addressString:) method
+
+CH 25:
+
