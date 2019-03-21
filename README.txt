@@ -84,4 +84,15 @@ the location(at:) method
 and the geocode(addressString:) method
 
 CH 25:
+from: https://cocoacasts.com/refactoring-the-view-controller
 
+A search bar emits a sequence of String values. We ask it for a reference to that sequence. The orEmpty operator converts any nil values to an empty string.
+The asDriver() method turns the sequence into a driver. We pass this driver of type String to the initializer of the AddLocationViewViewModel class.
+
+We can remove the remaining lines from the viewDidLoad() method.
+Instead, we're going to use bindings to update the user interface if the view model performs a geocoding request and when it receives a response.
+
+You may be wondering what we gained by introducing the Model-View-ViewModel pattern and the AddLocationViewViewModel class in the AddLocationViewController class.
+Let's take a look. The view controller is no longer in charge of forward geocoding. In fact, it doesn't even know about the Core Location framework.
+That's our first accomplishment. But, more important, the view controller no longer manages state. This is thanks to Rx and the Model-View-ViewModel pattern.
+The less state your application manages the better and this is especially true for view controllers.

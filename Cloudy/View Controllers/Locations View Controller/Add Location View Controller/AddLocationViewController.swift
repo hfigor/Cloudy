@@ -6,8 +6,13 @@
 //  Copyright © 2017 Cocoacasts. All rights reserved.
 //
 
+
+// import CoreLocation
+
+import RxCocoa
+
+import RxSwift
 import UIKit
-import CoreLocation
 
 protocol AddLocationViewControllerDelegate {
     func controller(_ controller: AddLocationViewController, didAddLocation location: Location)
@@ -24,11 +29,13 @@ class AddLocationViewController: UIViewController {
 
     var viewModel: AddLocationViewViewModel!
     
+    private let disposeBag = DisposeBag()
+    
    // private var locations: [Location] = []
 
     // MARK: -
 
-    private lazy var geocoder = CLGeocoder()
+    //private lazy var geocoder = CLGeocoder()
 
     // MARK: -
 
@@ -42,20 +49,19 @@ class AddLocationViewController: UIViewController {
         title = "Add Location"
         
         // Initialize the View Model -- this will move to the LocationsViewController to be injected
-        viewModel = AddLocationViewViewModel()
+        viewModel = AddLocationViewViewModel(query: searchBar.rx.text.orEmpty.asDriver())
         
-           // Configure the View Model
-        viewModel.locationsDidChange = { [unowned self] (locations) in
+        // Drive the Table View:
+        // Because the view model is owned by the view controller, we use an unowned reference to self within the closure.
+        
+        viewModel.locations.drive(onNext: { [unowned self](_) in
+            // update Table View
             self.tableView.reloadData()
-        }
+        })
+        .disposed(by: disposeBag)
         
-        viewModel.queryingDidChange = { [unowned self] (querying) in
-            if querying {
-                self.activityIndicatorView.startAnimating()
-            } else {
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
+        // Drive the Activity Indicator View
+        viewModel.querying.drive(activityIndicatorView.rx.isAnimating).disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +69,22 @@ class AddLocationViewController: UIViewController {
 
         // Show Keyboard
         searchBar.becomeFirstResponder()
+        
+        // Searchbar Clicked
+        searchBar.rx.searchButtonClicked
+            .asDriver(onErrorJustReturn: ())//.asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [unowned self] in
+                self.searchBar.resignFirstResponder()
+            })
+        .disposed(by: disposeBag)
+        
+        // Cancel Button Clicked
+        searchBar.rx.cancelButtonClicked
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: { [unowned self] in
+                self.searchBar.resignFirstResponder()
+            })
+        .disposed(by: disposeBag)
     }
 
     // MARK: - View Methods
@@ -110,21 +132,5 @@ extension AddLocationViewController: UITableViewDelegate {
 }
 
 extension AddLocationViewController: UISearchBarDelegate {
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Hide Keyboard
-        searchBar.resignFirstResponder()
-
-        // Forward Geocode Address String
-        viewModel.query = searchBar.text ?? ""
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // Hide Keyboard
-        searchBar.resignFirstResponder()
-
-        // Forward Geocode Address String
-        viewModel.query = searchBar.text ?? ""
-    }
-
+    
 }
