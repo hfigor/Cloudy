@@ -9,13 +9,16 @@
 import RxSwift
 import RxCocoa
 import Foundation
-import CoreLocation
+// import CoreLocation // no longer needed. see location below
 
 class AddLocationViewViewModel {
     
     // MARK: Initialization
     
-    init(query: Driver<String>) {
+    init(query: Driver<String>, locationService: LocationService) { // added locationService argument to support stubbing
+        // Set Properties
+        self.locationService = locationService
+        
         query
         .throttle(0.5)
         .distinctUntilChanged()
@@ -40,8 +43,10 @@ class AddLocationViewViewModel {
     var locations: Driver<[Location]> { return _locations.asDriver() }
     // The add location view controller no longer needs to know about the Core Location framework and it shouldn't perform the geocoding requests.
     // This is now handled by the view model.
-    private lazy var geocoder = CLGeocoder()
-    
+   
+    // private lazy var geocoder = CLGeocoder() replace with LocationService. This class no longer knows how the application performs the geocoding requests.
+    // It could be the Core Location framework, but it might as well be some other library. Ref: https://cocoacasts.com/protocol-oriented-programming-and-dependency-injection
+    private let locationService : LocationService
    
     // MARK: Notification Properties
     var queryingDidChange: ((Bool) -> ())?
@@ -61,29 +66,23 @@ class AddLocationViewViewModel {
   
     // Helper Methods
     
+    // Because most of the heavy lifting is done by the location service, the geocode implementation is shorter and simpler.
     private func geocode(addressString: String?) {
-        guard let addressString = addressString, !addressString.isEmpty else {
+        guard let addressString = addressString, addressString.count > 2 else {
             _locations.accept([])
             return
         }
         _querying.accept(true)
         
         // Geocode Address String
-        geocoder.geocodeAddressString(addressString, completionHandler: { [weak self] (placemarks, error) in
-            var locations: [Location] = []
-            
+        locationService.geocode(addressString: addressString) { [weak self] (locations, error) in
             self?._querying.accept(false)
+            self?._locations.accept(locations)
+            
             if let error = error {
                 print("Unable to Forward Geocode Address (\(error))")
-            } else if let _placemarks = placemarks {
-                locations = _placemarks.compactMap({(placemark) -> Location? in
-                    guard let name = placemark.name else { return nil}
-                    guard let location = placemark.location else { return nil }
-                    return Location(name: name, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                })
             }
-            self?._locations.accept(locations)
-        })
+        }
     }
     
     

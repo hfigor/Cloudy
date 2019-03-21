@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1013ED2243EE3B00BEBFE0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */; };
+		3C1013FA2243F02700BEBFE0 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1013F92243F02700BEBFE0 /* Geocoder.swift */; };
 		3C2C6C2F22245D1B00D89AE4 /* SettingsViewUnits_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C2E22245D1B00D89AE4 /* SettingsViewUnits_VM.swift */; };
 		3C2C6C312225929000D89AE4 /* SettingsViewTemp_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C302225929000D89AE4 /* SettingsViewTemp_VM.swift */; };
 		3C2C6C342229B54300D89AE4 /* SettingsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C332229B54300D89AE4 /* SettingsRepresentable.swift */; };
@@ -139,6 +141,8 @@
 
 /* Begin PBXFileReference section */
 		3C1013DB2242E5FE00BEBFE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3C1013F92243F02700BEBFE0 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Geocoder.swift; path = Services/Geocoder.swift; sourceTree = "<group>"; };
 		3C2C6C2E22245D1B00D89AE4 /* SettingsViewUnits_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUnits_VM.swift; sourceTree = "<group>"; };
 		3C2C6C302225929000D89AE4 /* SettingsViewTemp_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTemp_VM.swift; sourceTree = "<group>"; };
 		3C2C6C332229B54300D89AE4 /* SettingsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepresentable.swift; sourceTree = "<group>"; };
@@ -212,6 +216,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C1013F82243EFB800BEBFE0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3C1013F92243F02700BEBFE0 /* Geocoder.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		3C2C6C322229B4AF00D89AE4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +449,7 @@
 				CC89B4331D9FE3D0006BFD6E /* Resources */,
 				CC89B4431D9FE877006BFD6E /* Managers */,
 				CC89B4491D9FEB36006BFD6E /* Protocols */,
+				3C1013F82243EFB800BEBFE0 /* Services */,
 				CC89B4311D9FE3D0006BFD6E /* Supporting Files */,
 			);
 			path = Cloudy;
@@ -529,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				CC89B44B1D9FEB73006BFD6E /* JSONDecodable.swift */,
+				3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -764,6 +778,7 @@
 				CC89B4521D9FECBE006BFD6E /* WeatherDayData.swift in Sources */,
 				CC89B4421D9FE5C6006BFD6E /* WeekViewController.swift in Sources */,
 				3C786850221C8A7000F3426F /* WeekView_VM.swift in Sources */,
+				3C1013FA2243F02700BEBFE0 /* Geocoder.swift in Sources */,
 				3C2C6C342229B54300D89AE4 /* SettingsRepresentable.swift in Sources */,
 				CC89B4501D9FEC2E006BFD6E /* WeatherData.swift in Sources */,
 				CC83E0E31F13C07800EB0CAC /* Location.swift in Sources */,
@@ -774,6 +789,7 @@
 				3C2C6C312225929000D89AE4 /* SettingsViewTemp_VM.swift in Sources */,
 				3C78684A221B09EC00F3426F /* UIImage.swift in Sources */,
 				3C2C6C2F22245D1B00D89AE4 /* SettingsViewUnits_VM.swift in Sources */,
+				3C1013ED2243EE3B00BEBFE0 /* LocationService.swift in Sources */,
 				CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */,
 				3C2C6C39222C5C6A00D89AE4 /* WeatherDayRepresentable.swift in Sources */,
 				CC83E0D81F13BF8000EB0CAC /* LocationRepresentable.swift in Sources */,

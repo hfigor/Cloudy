@@ -96,3 +96,25 @@ You may be wondering what we gained by introducing the Model-View-ViewModel patt
 Let's take a look. The view controller is no longer in charge of forward geocoding. In fact, it doesn't even know about the Core Location framework.
 That's our first accomplishment. But, more important, the view controller no longer manages state. This is thanks to Rx and the Model-View-ViewModel pattern.
 The less state your application manages the better and this is especially true for view controllers.
+
+CH 26: Protocol Oriented Programing and Dependency Injection
+
+If we want to test the AddLocationViewViewModel class, we need the ability to stub the responses of the geocoding requests we make to Apple's location services.
+Only then can we write fast and reliable unit tests. Being in control of your environment is essential if your goal is creating a robust test suite.
+
+But how do we stub the responses of the geocoding requests we make? The Core Location framework is a system framework.
+We cannot mock the CLGeocoder class. The solution is simple, but it requires a bit of work.
+
+A Plan of Action
+The solution involves three steps:
+First, we need to create a service that's in charge of performing the geocoding requests. That service needs to be injected into the view model.
+The view model shouldn't be in charge of instantiating the service.
+
+Second, the service we inject into the view model conforms to a protocol we define. The protocol is nothing more than a definition of an interface
+that allows the view model to initiate a geocoding request. It initiates the geocoding request, it doesn't perform the geocoding request.
+
+Third, the service conforms to the protocol and we inject an instance of the service into the view model.
+
+Not only does this solution decouple the view model from the Core Location framework, the view model won't even know which service it's using, that is,
+as long as the service conforms to the protocol we define. Don't worry if this sounds confusing. Let's start by creating the protocol for the service.
+We can draw inspiration from the current implementation of the AddLocationViewViewModel class. It shows us what the protocol should look like.

@@ -6,12 +6,8 @@
 //  Copyright © 2017 Cocoacasts. All rights reserved.
 //
 
-
-// import CoreLocation
-
-import RxCocoa
-
 import RxSwift
+import RxCocoa
 import UIKit
 
 protocol AddLocationViewControllerDelegate {
@@ -49,7 +45,7 @@ class AddLocationViewController: UIViewController {
         title = "Add Location"
         
         // Initialize the View Model -- this will move to the LocationsViewController to be injected
-        viewModel = AddLocationViewViewModel(query: searchBar.rx.text.orEmpty.asDriver())
+        viewModel = AddLocationViewViewModel(query: searchBar.rx.text.orEmpty.asDriver(), locationService: Geocoder())
         
         // Drive the Table View:
         // Because the view model is owned by the view controller, we use an unowned reference to self within the closure.
