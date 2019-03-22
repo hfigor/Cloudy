@@ -118,3 +118,51 @@ Third, the service conforms to the protocol and we inject an instance of the ser
 Not only does this solution decouple the view model from the Core Location framework, the view model won't even know which service it's using, that is,
 as long as the service conforms to the protocol we define. Don't worry if this sounds confusing. Let's start by creating the protocol for the service.
 We can draw inspiration from the current implementation of the AddLocationViewViewModel class. It shows us what the protocol should look like.
+
+
+CH 28: Where Do we Go From Here? (Synopsis)
+from: https://cocoacasts.com/mastering-mvvm-with-swift-where-to-go-from-here
+
+Putting the View Controllers On a Diet
+First and foremost, the view controllers of the project have become skinnier, lightweight, and focused. They no longer deal with data manipulation.
+In fact, the view controllers are not aware of or keep a reference to the models used in the project. Keep in mind that the goal of the Model-View-ViewModel pattern
+isn't merely removing code from view controllers and dumping it into a view model. The goal is more ambitious and some benefits are more subtle.
+The week view controller doesn't keep a reference to the weather data. It now uses a view model instead. It doesn't declare properties for date formatters to format dates.
+They're no longer needed. And, the most substantial change, it's no longer responsible for configuring the table view cells of the table view.
+The view model hands the table view a view model for each table view cell and, with the help of a protocol, the latter knows exactly how to configure itself using the view model.
+You also learned that the Model-View-ViewModel pattern can be used in view controllers that aren't driven by data. The settings view controller is an example of this.
+It doesn't use a model to populate itself. It merely shows the user a table view with their preferences.
+The Model-View-ViewModel pattern is a good fit for almost any type of view controller. The add location view controller also underwent a dramatic change.
+Before its facelift, it was in charge of handling user interaction, data manipulation, forward geocoding, and data visualization. That's no longer true after the refactoring operation.
+We gained a number of key benefits. The view model is in charge of performing forward geocoding requests and the view controller no longer manages state.
+Nor does the view model. Thanks to reactive programming, we only deal with streams of data. That's a significant change.
+The add location view controller is focused and lightweight. It's only task is handling user interaction and displaying data to the user.
+In other words, it's a view controller in the purest sense. That's something we accomplished by implementing the Model-View-ViewModel pattern.
+
+Introducing View Models
+The code we removed from the view controllers now lives in the view models we introduced in the project. What I like about these view models is their simplicity.
+In their most basic form, the view models convert the raw values of the model they manage to values the view controller can directly display in the view it manages.
+Even though the add location view view model is a bit more advanced, it remains focused.
+We also included the logic of the user's preferences in several view models. The result is that the interface of the view models is clear and concise.
+Using the view models in the view controllers and the table view cells is as simple as asking for a value to display. That's the essence of the Model-View-ViewModel pattern.
+
+Improved Testability
+I have to admit that I don't like writing unit tests, but this isn't much of a problem when testing view models. The reason is simple, writing unit tests for view models is easy.
+Because you can carefully control the model that's used to instantiate the view model, unit testing becomes almost painless.
+And remember that, if we were to write unit tests for the view controllers to unit test the same functionality, we would have to deal with a bunch of issues
+and the setup would look more complex. Improved testability is another key benefit of the Model-View-ViewModel pattern. I hope this series has convinced you of that.
+
+More Flexibility
+It's no coincidence that the pattern is named Model-View-ViewModel and not Model-View-Controller-ViewModel. The controller still plays a part,
+but you need to understand that the Model-View-ViewModel pattern is quite flexible. The implementation of the week view controller shows this.
+The week view controller asks its view model for a view model for a weather day table view cell. The view controller isn't involved in configuring the table view cell itself.
+The Model-View-ViewModel pattern helps configure views with view models. The view controller is still involved, but its role can sometimes be minimal.
+Just remember what the Model-View-ViewModel pattern tries to accomplish and don't try to think in terms of the Model-View-Controller pattern too much.
+
+Where to Start
+You now have the knowledge to create applications that use the Model-View-ViewModel pattern.
+But chances are that you have one or more projects that use the Model-View-Controller pattern. This isn't a problem, though.
+It's easy to start with the Model-View-ViewModel pattern in an existing project. You don't need to spend weeks or months refactoring.
+Start small. For existing projects, you don't need to choose between MVC and MVVM. Remember that MVVM is in many ways similar to MVC.
+
+I hope you enjoyed this series on the Model-View-ViewModel pattern. If you have any questions or feedback, reach out to me. I'm here to help.
