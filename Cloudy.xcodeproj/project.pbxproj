@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C1013ED2243EE3B00BEBFE0 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */; };
 		3C1013FA2243F02700BEBFE0 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1013F92243F02700BEBFE0 /* Geocoder.swift */; };
+		3C1013FE224412DB00BEBFE0 /* AddLocationView_VM_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1013FD224412DB00BEBFE0 /* AddLocationView_VM_Tests.swift */; };
 		3C2C6C2F22245D1B00D89AE4 /* SettingsViewUnits_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C2E22245D1B00D89AE4 /* SettingsViewUnits_VM.swift */; };
 		3C2C6C312225929000D89AE4 /* SettingsViewTemp_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C302225929000D89AE4 /* SettingsViewTemp_VM.swift */; };
 		3C2C6C342229B54300D89AE4 /* SettingsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C6C332229B54300D89AE4 /* SettingsRepresentable.swift */; };
@@ -143,6 +144,7 @@
 		3C1013DB2242E5FE00BEBFE0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		3C1013F92243F02700BEBFE0 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Geocoder.swift; path = Services/Geocoder.swift; sourceTree = "<group>"; };
+		3C1013FD224412DB00BEBFE0 /* AddLocationView_VM_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddLocationView_VM_Tests.swift; path = TestCases/AddLocationView_VM_Tests.swift; sourceTree = "<group>"; };
 		3C2C6C2E22245D1B00D89AE4 /* SettingsViewUnits_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewUnits_VM.swift; sourceTree = "<group>"; };
 		3C2C6C302225929000D89AE4 /* SettingsViewTemp_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTemp_VM.swift; sourceTree = "<group>"; };
 		3C2C6C332229B54300D89AE4 /* SettingsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepresentable.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				3C2C6C58222F260F00D89AE4 /* DayView_VM_Tests.swift */,
 				3C4A1EBC2231A70400E3808B /* WeekView_VM_Tests.swift */,
 				3C4A1EBE2231A84400E3808B /* WeatherDayView_VM_Tests.swift */,
+				3C1013FD224412DB00BEBFE0 /* AddLocationView_VM_Tests.swift */,
 			);
 			name = "Test Cases";
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 			files = (
 				3C2C6C59222F260F00D89AE4 /* DayView_VM_Tests.swift in Sources */,
 				3C2C6C53222EED8F00D89AE4 /* SettingsViewTemp_VM_Tests.swift in Sources */,
+				3C1013FE224412DB00BEBFE0 /* AddLocationView_VM_Tests.swift in Sources */,
 				3C2C6C51222DC4DF00D89AE4 /* SettingsViewUnits_VM_Tests.swift in Sources */,
 				3C2C6C57222F221B00D89AE4 /* XCTestCase.swift in Sources */,
 				3C4A1EBF2231A84400E3808B /* WeatherDayView_VM_Tests.swift in Sources */,
