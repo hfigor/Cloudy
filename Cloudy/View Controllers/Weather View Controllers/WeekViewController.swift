@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WeekViewControllerDelegate {
+protocol WeekViewControllerDelegate: class {
     func controllerDidRefresh(controller: WeekViewController)
 }
 
@@ -113,7 +113,8 @@ extension WeekViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDayTableViewCell.reuseIdentifier, for: indexPath) as? WeatherDayTableViewCell else { fatalError("Unexpected Table View Cell") }
+        // By making it clear that we expect a WeatherDayTableViewCell instance, the dequeueReusableCell(for:) method can substitute its generic type for a concrete type.
+        let cell:WeatherDayTableViewCell = tableView.dequeueReusableCell(for: indexPath)
 
         if let viewModel = viewModel?.viewModel(for: indexPath.row) {
             // Weather Data Fetched in viewModel (WeekViewModel)

@@ -166,3 +166,14 @@ It's easy to start with the Model-View-ViewModel pattern in an existing project.
 Start small. For existing projects, you don't need to choose between MVC and MVVM. Remember that MVVM is in many ways similar to MVC.
 
 I hope you enjoyed this series on the Model-View-ViewModel pattern. If you have any questions or feedback, reach out to me. I'm here to help.
+
+
+3/27/2019  Using this project to implement Generics and protocols for Reusable Views
+From: https://cocoacasts.com/dequeueing-reusable-views-with-generics-and-protocols
+
+We will make use of generics, protocols, and type inference. Remember that Protocols are first class citizens and can be extended.
+The protocol ReusableView via an extention will give us access to the view's reusableIdentifier.
+The extention of UITableView provides a generic replacement for dequeueReusableCell(for:).
+
+Added a global Generics Group and will be using the global Protocols Group for these files.
+
