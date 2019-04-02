@@ -34,6 +34,8 @@
 		3CA5BE592239546500A1531D /* AddLocationView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5BE582239546500A1531D /* AddLocationView_VM.swift */; };
 		3CA5BE7C223BE66300A1531D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA5BE6C223BE60800A1531D /* RxCocoa.framework */; };
 		3CA5BE7D223BE66300A1531D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA5BE6A223BE60800A1531D /* RxSwift.framework */; };
+		3CADAB8C224C485200331E4F /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CADAB8B224C485200331E4F /* ReusableView.swift */; };
+		3CADAB8E224D170900331E4F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CADAB8D224D170900331E4F /* UITableView.swift */; };
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -170,6 +172,8 @@
 		3C78685422208BAA00F3426F /* SettingsViewTime_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewTime_VM.swift; sourceTree = "<group>"; };
 		3CA5BE582239546500A1531D /* AddLocationView_VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationView_VM.swift; sourceTree = "<group>"; };
 		3CA5BE5A223BE60700A1531D /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
+		3CADAB8B224C485200331E4F /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		3CADAB8D224D170900331E4F /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = Generics/UITableView.swift; sourceTree = "<group>"; };
 		CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CC08B9E01DA2169400754A85 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -336,6 +340,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3CADAB80224C47CF00331E4F /* Generics */ = {
+			isa = PBXGroup;
+			children = (
+				3CADAB8D224D170900331E4F /* UITableView.swift */,
+			);
+			name = Generics;
+			sourceTree = "<group>";
+		};
 		CC08B9D91DA206C300754A85 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,9 +461,10 @@
 				CC89B42E1D9FE3D0006BFD6E /* View Controllers */,
 				CC89B4461D9FE8B6006BFD6E /* Configuration */,
 				CC08B9DF1DA2166B00754A85 /* Extensions */,
-				CC89B4331D9FE3D0006BFD6E /* Resources */,
+				3CADAB80224C47CF00331E4F /* Generics */,
 				CC89B4431D9FE877006BFD6E /* Managers */,
 				CC89B4491D9FEB36006BFD6E /* Protocols */,
+				CC89B4331D9FE3D0006BFD6E /* Resources */,
 				3C1013F82243EFB800BEBFE0 /* Services */,
 				CC89B4311D9FE3D0006BFD6E /* Supporting Files */,
 			);
@@ -546,6 +559,7 @@
 			children = (
 				CC89B44B1D9FEB73006BFD6E /* JSONDecodable.swift */,
 				3C1013EC2243EE3B00BEBFE0 /* LocationService.swift */,
+				3CADAB8B224C485200331E4F /* ReusableView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -627,6 +641,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -767,6 +782,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC08B9E31DA2208800754A85 /* Conversions.swift in Sources */,
+				3CADAB8C224C485200331E4F /* ReusableView.swift in Sources */,
 				CC89B4481D9FE8D3006BFD6E /* Configuration.swift in Sources */,
 				3C786848221768AA00F3426F /* DayView_VM.swift in Sources */,
 				CC7854CD1D9FF99700E7836D /* WeatherViewController.swift in Sources */,
@@ -792,6 +808,7 @@
 				CC89B4401D9FE5BC006BFD6E /* DayViewController.swift in Sources */,
 				3C2C6C312225929000D89AE4 /* SettingsViewTemp_VM.swift in Sources */,
 				3C78684A221B09EC00F3426F /* UIImage.swift in Sources */,
+				3CADAB8E224D170900331E4F /* UITableView.swift in Sources */,
 				3C2C6C2F22245D1B00D89AE4 /* SettingsViewUnits_VM.swift in Sources */,
 				3C1013ED2243EE3B00BEBFE0 /* LocationService.swift in Sources */,
 				CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */,

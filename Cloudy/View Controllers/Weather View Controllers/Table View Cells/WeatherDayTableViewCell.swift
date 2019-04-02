@@ -12,7 +12,7 @@ class WeatherDayTableViewCell: UITableViewCell {
 
     // MARK: - Type Properties
 
-    static let reuseIdentifier = "WeatherDayCell"
+   // static let reuseIdentifier = "WeatherDayCell"
 
     // MARK: - Properties
 
