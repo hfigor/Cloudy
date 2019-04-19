@@ -34,12 +34,8 @@
 		3CA5BE592239546500A1531D /* AddLocationView_VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5BE582239546500A1531D /* AddLocationView_VM.swift */; };
 		3CA5BE7C223BE66300A1531D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA5BE6C223BE60800A1531D /* RxCocoa.framework */; };
 		3CA5BE7D223BE66300A1531D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA5BE6A223BE60800A1531D /* RxSwift.framework */; };
-<<<<<<< HEAD
-		3CADAB7D224BB81100331E4F /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA5BE70223BE60800A1531D /* RxTest.framework */; };
-=======
 		3CADAB8C224C485200331E4F /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CADAB8B224C485200331E4F /* ReusableView.swift */; };
 		3CADAB8E224D170900331E4F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CADAB8D224D170900331E4F /* UITableView.swift */; };
->>>>>>> generics_Protocols
 		CC08B9DB1DA206EE00754A85 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DA1DA206EE00754A85 /* SettingsViewController.swift */; };
 		CC08B9DE1DA20DB400754A85 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9DD1DA20DB400754A85 /* SettingsTableViewCell.swift */; };
 		CC08B9E11DA2169400754A85 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC08B9E01DA2169400754A85 /* UserDefaults.swift */; };
@@ -218,7 +214,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CADAB7D224BB81100331E4F /* RxTest.framework in Frameworks */,
 				3CA5BE7D223BE66300A1531D /* RxSwift.framework in Frameworks */,
 				3CA5BE7C223BE66300A1531D /* RxCocoa.framework in Frameworks */,
 			);
@@ -624,7 +619,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Cocoacasts;
 				TargetAttributes = {
 					3C2C6C3D222DA23A00D89AE4 = {
@@ -643,7 +638,7 @@
 			};
 			buildConfigurationList = CC89B4121D9FE314006BFD6E /* Build configuration list for PBXProject "Cloudy" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en;
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
@@ -891,7 +886,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -951,7 +945,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
